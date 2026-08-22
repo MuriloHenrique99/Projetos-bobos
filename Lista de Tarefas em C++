@@ -1,0 +1,89 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+int main() {
+    std::string descricao;
+    int option,taskNumber;
+    int num = 0;
+    int i = 0;
+
+    std::vector<std::string> tasks;
+    std::vector<std::string> possible_tasks = {"1. Add Task","2. View Tasks","3. Remove Task", "4. Quit"};
+    
+    std::cout << "Welcome to Task List Tool!" << std::endl << std::endl;
+
+    std::cout << "Menu Options:" << std::endl;
+    std::cout << possible_tasks[0] << std::endl;
+    std::cout << possible_tasks[1] << std::endl;
+    std::cout << possible_tasks[2] << std::endl;
+    std::cout << possible_tasks[3] << std::endl << std::endl;
+
+    std::cout << "Task list system initialized and ready!" << std::endl;
+
+    while(option != 4){   //std::cout << "Digite sua opcao: "; std::cin >> option;
+        std::cout << "Choose an option: "; std::cin >> option;
+        if(option == 1){
+           num += 1; 
+           //std::cout << "Your Tasks:" << std::endl;
+           std::cin.ignore(1000, '\n');
+            for(i; i < num; i++){
+                std::getline(cin, descricao);
+                tasks.push_back(descricao);
+                std::cout << "Task \"" << tasks[num - 1] << "\" added successfully!" << std::endl;
+                std::cout << "Total tasks: " << tasks.size() << std::endl;
+                break;
+            }
+            
+        }
+
+        if(option == 2){
+            if(num != 0){
+                std::cout << "Your Tasks:" << std::endl;
+                for(int i = 0; i < num; i++){
+                    std::cout << i+1 << ". " << tasks[i] << std::endl;
+                    if(i == num - 1){
+                        std::cout << "Total tasks: " << tasks.size() << std::endl;
+                        break;
+                    }
+                }
+            } else {
+                std::cout << "No tasks available." << std::endl;
+            }
+        }
+        
+
+        if(option == 3){
+            std::cin >> taskNumber;
+            std::cin.ignore(1000, '\n');
+            if (!(taskNumber <= 0 || taskNumber > num)){
+                for(int i = 0; i < num; i++){
+                    if(i == taskNumber - 1){
+                        std::cout << "Task \"" << tasks[taskNumber - 1] << "\" removed successfully!" << std::endl;
+                        tasks.erase(tasks.begin() + taskNumber - 1) ;
+                        num -= 1;
+                    }
+                }
+                if(tasks.size() == 0){
+                std::cout << "No tasks remaining." << std::endl;
+            } else {
+                std::cout << "Remaining Tasks:" << std::endl;
+                for(int i = 0; i < tasks.size(); i++){
+                    std::cout << i+1 << ". " << tasks[i] << std::endl;
+                }
+            }
+            std::cout << "Total tasks: " << tasks.size() << std::endl;
+            } else {
+                std::cout << "Error: Invalid task number. Please enter a number between 1 and 1." << std::endl;
+            }
+        }
+        if(option <= 0 || option >= 5){
+            std::cout << "Invalid choice. Please try again." << std::endl;
+        }
+        //std::cout << "Task \"" << descricao << "\"" " added successfully!" << std::endl;
+    } std:: cout << "Thank you for using Task List Tool!";
+
+    return 0;
+}
