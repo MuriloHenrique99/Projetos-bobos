@@ -6,9 +6,9 @@ using namespace std;
 
 int main() {
     std::string descricao;
-    int option,taskNumber;
+    int option = 0;
+    int taskNumber;
     int num = 0;
-    int i = 0;
 
     std::vector<std::string> tasks;
     std::vector<std::string> possible_tasks = {"1. Add Task","2. View Tasks","3. Remove Task", "4. Quit"};
@@ -29,7 +29,7 @@ int main() {
            num += 1; 
            //std::cout << "Your Tasks:" << std::endl;
            std::cin.ignore(1000, '\n');
-            for(i; i < num; i++){
+            for(int i = 0; i < num; i++){
                 std::getline(cin, descricao);
                 tasks.push_back(descricao);
                 std::cout << "Task \"" << tasks[num - 1] << "\" added successfully!" << std::endl;
@@ -64,6 +64,7 @@ int main() {
                         std::cout << "Task \"" << tasks[taskNumber - 1] << "\" removed successfully!" << std::endl;
                         tasks.erase(tasks.begin() + taskNumber - 1) ;
                         num -= 1;
+                        break;
                     }
                 }
                 if(tasks.size() == 0){
