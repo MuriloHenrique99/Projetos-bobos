@@ -1,0 +1,42 @@
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+using namespace std;
+
+std::map<string, int> findKeysWithValue(map<string, int> inicio, int valor){
+    map<string, int> contado;
+    int encontrou = 0;
+    for(auto par : inicio){
+        if(par.second == valor){
+            contado[par.first] = par.second;
+            encontrou += 1;
+        }
+    }
+    std::cout << "Keys found: " << encontrou << std::endl;
+    return contado;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    
+    map<string, int> keyValueMap;
+
+    for (int i = 0; i < n; i++) {
+        string key;
+        int value;
+        cin >> key >> value;
+        keyValueMap[key] = value;
+    }
+
+    int targetValue;
+    cin >> targetValue;
+
+    map<string, int> mapafinal = findKeysWithValue(keyValueMap,targetValue);
+
+    for(auto par : mapafinal){
+        std::cout << par.first << std::endl;
+    }
+    return 0;
+}
