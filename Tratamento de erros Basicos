@@ -3,8 +3,9 @@
 #include <stdexcept>
 using namespace std;
 
+//funciona se a funcao for void sem os retornos, eles tao ali por estetica
 
-int processData(string* operacao, string* data){
+int processData(string* operacao, string* data){ //como que pegar o ponteiro inves do endereço funciona, é muito loco esse tal de ponteiro
     if(*operacao == "convert"){
         int retorno = std::stoi(*data);
         std::cout << "Result: "<< retorno;
