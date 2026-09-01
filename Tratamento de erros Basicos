@@ -1,0 +1,49 @@
+#include <iostream>
+#include <string>
+#include <stdexcept>
+using namespace std;
+
+
+int processData(string* operacao, string* data){
+    if(*operacao == "convert"){
+        int retorno = std::stoi(*data);
+        std::cout << "Result: "<< retorno;
+        return retorno;
+        throw "Out of range error";
+    }
+    if(*operacao == "divide"){
+        int retorno = std::stoi(*data);
+        if(retorno != 0){
+            retorno = 100 / retorno;
+            std::cout << "Result: " << retorno;
+            return retorno;
+        } else {
+            throw "Division by zero";
+        } 
+    }
+    if(*operacao == "access"){
+        std::string ola = "Hello";
+        int troca = std::stoi(*data);
+        char retorno = ola.at(troca);
+        std::cout << "Result: " << retorno;
+        return retorno;
+        throw;
+    }
+}
+
+int main() {
+    string operation;
+    string data;
+    cin >> operation;
+    cin >> data;
+    
+    try {
+        int retorno = processData(&operation, &data);
+    }catch(std::invalid_argument& e) {
+        std::cout << "Invalid argument error" << std::endl;
+    }catch(std::out_of_range& e) {
+        std::cout << "Out of range error" << std::endl;
+    }catch(const char*) {
+        std::cout << "Custom error: Division by zero" << std::endl;
+    }
+}
