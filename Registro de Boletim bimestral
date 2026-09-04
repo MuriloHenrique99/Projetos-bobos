@@ -1,0 +1,205 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <stdexcept>
+#include <cctype>
+
+struct alunos {
+    std::string nomes;
+    double notas1, notas2;
+    double media;
+};
+
+bool temNumeros(std::string nomes){
+    for(char letra : nomes){
+        if(std::isdigit(letra))
+            return true;
+    }
+    return false;
+}
+
+std::vector<alunos> cadastrar() {
+    std::vector<alunos> cadastros;
+    
+    alunos x;
+    alunos registros;
+
+    for(int i = 0; i < 3; ++i){
+        bool continuar = true;
+        try {
+            while(continuar){
+                std::cout << "Digite o nome do aluno: "; std::getline(std::cin, registros.nomes);
+                if(temNumeros(registros.nomes)){
+                    std::cout << "Nome invalido, digite novamente: " << std::endl;
+                } else {
+                    continuar = false;
+                }
+            }
+            continuar = true;
+            while(continuar){
+                std::cout << "Digite a primeira nota do aluno: "; std::cin >> registros.notas1;
+                std::cout << "Digite a segunda nota do aluno: "; std::cin >> registros.notas2;
+                if(std::cin.fail()){
+                    std::cin.clear();
+                    std::cin.ignore(1000, '\n');
+                    throw std::invalid_argument("erro");
+                } else {
+                    continuar = false;
+                }
+                if(registros.notas1 < 0 || registros.notas1 > 10){
+                    std::cout << "Digite uma nota valida" << std::endl;
+                    continuar = true;
+                } 
+                if(registros.notas2 < 0 || registros.notas2 > 10){
+                    std::cout << "Digite uma nota valida" << std::endl; 
+                    continuar = true;
+                }
+                
+            }
+
+            std::cin.ignore(1000, '\n');
+
+            cadastros.push_back(registros);
+        } catch (std::invalid_argument& erro){
+            std::cout << "Voce digitou letras :/";
+            --i;
+        }
+        
+    }
+    for(int i = 0; i < cadastros.size(); i++){
+        for(int j = i + 1; j < cadastros.size(); j++){
+            if(cadastros[j].nomes < cadastros[i].nomes){
+                x = cadastros[j];
+                cadastros[j] = cadastros[i];
+                cadastros[i] = x;
+            }
+        }
+    }
+
+    for(int i = 0; i < cadastros.size(); i++){
+        std::cout << cadastros[i].nomes << std::endl;
+    }
+    return cadastros;
+}
+
+std::vector<alunos> pesquisar(std::vector<alunos> cadastros){
+    std::string resp = "sim";
+    std::string pesq;
+    int comeco, ultimo, meio;
+    bool acha = false;
+
+    while(resp == "sim"){
+        std::cout << "Digite sua pesquisa: "; std::getline(std::cin, pesq);
+        comeco = 0;
+        ultimo = cadastros.size() - 1;
+        acha = false;
+        while (comeco <= ultimo && acha == false){
+            meio = (comeco + ultimo) / 2;
+            if(pesq == cadastros[meio].nomes)
+                acha = true;
+            else if(pesq < cadastros[meio].nomes)
+                ultimo = meio - 1;
+            else 
+                comeco = meio + 1;
+            }
+    
+    if(acha == true){
+        cadastros[meio].media = (cadastros[meio].notas1 + cadastros[meio].notas2) / 2;
+        std::cout << pesq << " Foi encontrado na posicao " << meio;
+    } else {
+        std::cout << pesq << " Nao foi encontrado";
+    }
+    std::cout << "Deseja continuar: "; std::cin >> resp;
+    std::cin.ignore(1000, '\n');
+    }
+    return cadastros;
+}
+
+std::vector<alunos> apresentar_tudo(std::vector<alunos> cadastros){
+    
+    for(int i = 0; i < cadastros.size(); i++){
+        cadastros[i].media = (cadastros[i].notas1 + cadastros[i].notas2) / 2;
+    }
+    for(int i = 0; i < cadastros.size(); i++){
+        std::cout << "Aluno: " << cadastros[i].nomes << std::endl;
+        std::cout << "Notas das provas: " << cadastros[i].notas1 << " e " << cadastros[i].notas2 << std::endl;
+        std::cout << "Media do do bimestre: " << cadastros[i].media << std::endl << std::endl;
+    }
+    return cadastros;
+}
+
+std::vector<alunos> apresentar_passou(std::vector<alunos> cadastros){
+    for(int i = 0; i < cadastros.size(); i++){
+        cadastros[i].media = (cadastros[i].notas1 + cadastros[i].notas2) / 2;
+    }
+    for(int i = 0; i < cadastros.size(); i++){
+        if(cadastros[i].media >= 5){
+            std::cout << "Aluno: " << cadastros[i].nomes << std::endl;
+            std::cout << "Notas das provas: " << cadastros[i].notas1 << " e " << cadastros[i].notas2 << std::endl;
+            std::cout << "Media do do bimestre: " << cadastros[i].media << " Aluno aprovado" << std::endl << std::endl;
+        }
+    }
+    return cadastros;
+}
+
+std::vector<alunos> apresentar_repitiu(std::vector<alunos> cadastros){
+    for(int i = 0; i < cadastros.size(); i++){
+        cadastros[i].media = (cadastros[i].notas1 + cadastros[i].notas2) / 2;
+    }
+    for(int i = 0; i < cadastros.size(); i++){
+        if(cadastros[i].media < 5){
+            std::cout << "Aluno: " << cadastros[i].nomes << std::endl;
+            std::cout << "Notas das provas: " << cadastros[i].notas1 << " e " << cadastros[i].notas2 << std::endl;
+            std::cout << "Media do do bimestre: " << cadastros[i].media << " Aluno reprovado" << std::endl << std::endl;
+            
+        }
+    }
+    return cadastros;
+}
+
+
+int main (void){
+
+    std::cout << "Bem-Vindo ao registro de notas" << std::endl;
+    std::cout << "Selecione 1 para cadastrar" << std::endl;
+    std::cout << "Selecione 2 para pesquisar" << std::endl;
+    std::cout << "Selecione 3 para apresentar todos os registros " << std::endl;
+    std::cout << "Selecione 4 para apresentar os que passaram" << std::endl;
+    std::cout << "Selecione 5 para apresentar os que reprovaram" << std::endl;
+    std::cout << "Selecione 6 para sair" << std::endl;
+    int opcao = 0;
+
+    std::vector<alunos> pesquisa;
+    std::vector<alunos> cadastros;
+    std::vector<alunos> apre_tudo;
+    std::vector<alunos> apresentar_aprovado;
+    std::vector<alunos> apresentar_reprovado;
+
+    while (opcao != 6){
+
+        std::cout << "Digite sua opcao: "; std::cin >> opcao;
+        std::cin.ignore(1000, '\n');
+
+        if(opcao == 1){
+            cadastros = cadastrar();
+        }
+
+        if(opcao == 2){
+            pesquisa = pesquisar(cadastros);
+        }
+
+        if(opcao == 3){
+            apre_tudo = apresentar_tudo(cadastros);
+        }
+        
+        if(opcao == 4){
+            apresentar_aprovado = apresentar_passou(cadastros);
+        }
+        if(opcao == 5){
+            apresentar_reprovado = apresentar_repitiu(cadastros);
+        }
+        if(opcao <= 0 || opcao > 6){
+            std::cout << "Por favor escolha uma opcao valida" << std::endl;
+        }
+    }
+}
