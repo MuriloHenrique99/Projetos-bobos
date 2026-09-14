@@ -1,0 +1,53 @@
+user:/home$ cat > backup.sh << 'EOF'
+user:/home$ #!/bin/bash
+user:/home$ read -p "Enter source directory: " source_dir
+user:/home$ echo "Backing up: $source_dir"
+user:/home$ backup_dir="backup"
+user:/home$ mkdir -p "$backup_dir"
+user:/home$ echo "Created backup folder: $backup_dir"
+user:/home$ cp "$source_dir"/* "$backup_dir"
+user:/home$ echo "Files copied successfully"
+user:/home$ EOF
+user:/home$ echo "documents" | bash backup.sh
+user:/home$ ls backup
+
+//Cria um script básico que pede uma pasta de origem via 'read', cria uma pasta fixa chamada backup (usando mkdir -p para não dar erro se já existir) e copia todos os arquivos soltos dela.
+//O comando 'echo "documents" | bash backup.sh' executa o script enviando a palavra documents automaticamente para o read.
+//O 'ls backup' no final lista o conteúdo copiado para conferência.
+
+
+user:/home$ cat > backup.sh << 'EOF'
+user:/home$ #!/bin/bash
+user:/home$ echo "Enter folder to backup:"
+user:/home$ read folder
+user:/home$ echo "Backing up: $folder"
+user:/home$ timestamp=$(date +%Y%m%d_%H%M%S)
+user:/home$ backup_dir="backup_$timestamp"
+user:/home$ mkdir "$backup_dir"
+user:/home$ echo "Created backup folder: $backup_dir"
+user:/home$ cp "$folder"/* "$backup_dir"/
+user:/home$ echo "Files copied successfully"
+user:/home$ EOF
+user:/home$ chmod +x backup.sh
+user:/home$ echo "documents" | bash backup.sh
+
+//Nesta versão, a data/hora exata é salva primeiro na variável 'timestamp' usando $(date +%Y%m%d_%H%M%S). que por acaso que comando difícil de acertar
+//Depois, cria a pasta com o nome dinâmico (ex: backup_20260914_150500), garantindo que backups antigos nunca sejam sobrescritos.
+//Usa 'echo' e 'read' em duas linhas separadas no lugar de 'read -p'. Usa 'chmod +x' para dar permissão de execução ao script.
+
+
+user:/home$ cat > backup.sh << 'EOF'
+user:/home$ #!/bin/bash
+user:/home$ read -p "Enter directory to backup: " source_dir
+user:/home$ echo "Backing up: $source_dir"
+user:/home$ backup_dir="backup_$(date +%Y%m%d_%H%M%S)"
+user:/home$ mkdir "$backup_dir"
+user:/home$ echo "Created backup folder: $backup_dir"
+user:/home$ cp "$source_dir"/* "$backup_dir"/
+user:/home$ echo "Files copied successfully"
+user:/home$ echo "Backup complete: $source_dir -> $backup_dir"
+user:/home$ EOF
+user:/home$ echo "documents" | bash backup.sh
+
+//Versão mais limpa, gera o timestamp diretamente dentro da declaração da variável 'backup_dir'.
+//Inclui um 'echo' final informativo mostrando exatamente qual pasta foi copiada e qual pasta de destino foi gerada ($source_dir -> $backup_dir).
