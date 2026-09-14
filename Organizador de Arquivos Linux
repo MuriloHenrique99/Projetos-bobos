@@ -1,0 +1,39 @@
+user:/home$ cat > organizar.sh << 'EOF'
+user:/home$ #!/bin/bash
+user:/home$ for file in downloads/*; do
+user:/home$ if [ -f "file" ]; then //como linux é divertido kkkkkkk um $ e tenho a divertida missão de escrever tudo de novo
+user:/home$ tirar="${file##*.}"
+user:/home$ mkdir -p "downloads/$tirar"
+user:/home$ mv "$file" "downloads/$tirar/"
+user:/home$ echo "Moved $(basename "$file") to $tirar/"
+user:/home$ fi
+user:/home$ done
+user:/home$ EOF
+user:/home$ chmod +x organizar.sh
+user:/home$ ./organizar.sh
+sh: syntax error: unexpected "done" //de onde veio esse erro será?
+
+
+
+user:/home$ cat > organizar.sh << 'EOF'
+user:/home$ cat > organizar.sh << 'EOF'
+user:/home$ #!/bin/bash
+user:/home$ for file in downloads/*; do
+user:/home$ if [ -f "$file" ]; then
+user:/home$ tirar="${file##*.}"
+user:/home$ mkdir -p "downloads/$tirar"
+user:/home$ mv "$file" "downloads/$tirar/"
+user:/home$ echo "Moved $(basename "$file") to $tirar/"
+user:/home$ fi
+user:/home$ done
+user:/home$ EOF
+user:/home$ chmod +x organizar.sh
+user:/home$ ./organizar.sh
+Moved document.pdf to pdf/
+Moved image.jpg to jpg/
+Moved notes.txt to txt/
+Moved photo.jpg to jpg/
+Moved readme.txt to txt/
+Moved report.pdf to pdf/
+Moved song.mp3 to mp3/
+Moved track.mp3 to mp3/
