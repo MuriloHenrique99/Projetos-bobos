@@ -8,6 +8,7 @@ struct agenda{
     std::string telefones;
 };
 
+
 std::vector<agenda> cadastro(){
     std::vector<agenda> cadastros;
 
