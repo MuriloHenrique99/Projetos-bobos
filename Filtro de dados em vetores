@@ -16,6 +16,7 @@ std::vector<int> filterNumbers(vector<int>* numeros, int minimo){
 }
 
 int main() {
+
     int n;
     cin >> n;
     
