@@ -1,0 +1,156 @@
+* { 
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color:azure;
+}
+
+
+#principal {
+    width: 100%;
+    margin: 0 auto;
+    
+}
+
+.imagem {
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-ooiwk7LFQKRZAfbpkEsSHMhqYZ_Inz2_YO5Qlz_b7Q&s=10) ;
+    width: 1900px;
+    background-position: center;
+
+}
+
+header {
+    background-color: rgb(27, 75, 217);
+    border-radius: 6px;
+    padding: 15px;
+    padding-bottom: 25px;
+    border: 3px solid rgb(11, 13, 52);
+    box-shadow: 3px 3px 3x rgb(65, 73, 116);
+}
+
+header img[alt="dance_dance"] {
+    float: left;
+    width: 160px;
+}
+
+header img[alt="mega_dance"] {
+    float: right;
+    width: 160px;
+}
+
+header h1 {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: underline;
+    color: rgb(222, 218, 218);
+    box-shadow: 4px 4px 4px rgb(65, 73, 116);
+    background-color: rgb(51, 55, 59);
+    width: fit-content;
+    padding: 15px 85px;
+    margin: 0 auto;
+    
+}
+
+header p {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(222, 218, 218);
+    background-color: rgb(51, 55, 59);
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 25px;
+}
+
+.texto {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 35px;
+    text-shadow: 1px 1px rgb(128, 123, 123);
+}
+.primeiro {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 19px;
+    margin-bottom: 5px;
+    width: 66%;
+    float: right;
+    padding-top: 5px;
+    background-color: rgb(244, 245, 246);
+}
+
+details > summary {
+    cursor: pointer;
+    user-select: none;
+}
+
+
+
+summary:hover {
+    color:rgb(104, 71, 71);
+}
+
+summary {
+    padding-left: 7px;
+    padding-bottom: 4px;
+}
+
+li {
+    margin-left: 20px;;
+}
+
+p {
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.divisor {
+    height: 4px;
+    background-color: rgb(15, 15, 15);
+}
+
+.segundo h2{
+    width: 16%;
+    font-size: 26px;
+    color:azure;
+    float: left;
+    text-align: center;
+    display: block;
+    background-color: rgb(0, 0, 0);
+    padding: 6px;
+    border-radius: 5px;
+}
+
+.segundo h2:hover {
+    background-color: rgb(46, 41, 41);
+}
+
+.segundo img {
+    width: 150px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+footer {
+    display: block;
+    background-color:  rgb(58, 137, 233);
+    text-align: center;
+    clear:both;
+    font-size: 30px;
+    border-radius: 2px;
+    text-decoration: underline;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.canto img {
+    width: 18%;
+    height: 1000px;
+    float: right;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+}
+

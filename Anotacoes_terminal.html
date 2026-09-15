@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="anotacoes.css">
+    <title>Anotações sobre Terminal</title>
+</head>
+<body>
+    <div id="principal" class="imagem">
+        <header>
+            <img src="https://media.tenor.com/jlCMcSm3ddcAAAAM/dancing-dance.gif" alt="dance_dance">
+            <img src="https://media.tenor.com/-HzrtqRv3t8AAAAM/watch-this.gif" alt="mega_dance">
+            <h1>Anotações sobre Terminal<p>(linux)</p></h1>
+        </header>
+
+        <main>
+            <div class="canto">
+                <section>
+                    <img src="git-commands-cheat-sheet-what-should-i-add-or-fix-v0-6cgz2udk51yf1.jpg" alt="Git Commands Cheat Sheet">
+                </section>
+            </div>
+
+            <div class="primeiro">
+            
+                <section>
+                    <h2 class="texto"><strong>Comandos de especificação</strong></h2>
+                    <details>
+                        <summary>  Veja aqui</summary><br>
+                            <ul>
+                            <li>
+                                <strong>-i</strong>
+                                <p>//Este comando cria uma caixa de autorização pra impedir bobagens<br>
+                                //Exemplo rm -i -r documents, o -i te obriga a autorizar o comando a funcionar<br>
+                                //comando esse que remove uma pasta com tudo que ha dentro</p>
+                            </li>
+                            <li>
+                                <strong>-r</strong>
+                                <p>//-r é utilizado para acessar diretorios/pastas se voce quer copiar uma pasta<br>
+                                //faça cp -r documents novo_documents<br>
+                                //isso copia e nomeia a copia como novo_documents</p>
+                            </li>
+                        </ul>
+                    </details>
+                    
+                    <hr class="divisor">
+                        <h2 class="texto"><strong>Comandos de seleção</strong></h2>
+                        <details>
+                        <summary>  Veja aqui</summary><br>
+                        <ul>
+                            <li>
+                                <strong>ls *.txt | ls acucar* | ls *vermelho*</strong>
+                                <p>//o * seleciona todos do tipo que voce determinar, estou usando o comando listar com * isso faz o seguinte<br>
+                                // *.txt seleciona tudo que termine com .txt<br>
+                                // acucar* seleciona tudo que comece com acucar<br>
+                                // *vermelho* acessa todos os arquivos que tenham a palavra vermelho</p>
+                            </li>
+                            <li>
+                                <strong>img? arquivo? .?x?</strong>
+                                <p>//comando ?, onde ele estiver significa que esta buscando qualquer caracter naquela posicao<br>
+                                //exemplo img? que caso exista img1, img2, img3 todas irão aparecer como resultado<br>
+                                //uma utilidade é tirar arquivo chato .exe e txt de pastas grandes, vc joga o .?x? e tudo que tiver<br>
+                                //. como primeiro caracter e x como terceiro ira aparecer</p>
+                            </li>
+                            <li>
+                                <strong>file[123].txt file[1-9] file[a-z] file[!45] file[!0-9]</strong>
+                                <p>//esse comando seleciona intervalos de caracteres que pode aparecer<br>
+                                //exemplo [123] se o arquivo tive 1 ou 2 ou 3 naquela posicao ele é valido como saida<br>
+                                //pra facilitar existem intervalos com [0-9] se tiver entre 0 e 9 passa<br>
+                                //tambem existe o ! que exclui os selecionados [!0-9] se tiver numero de 0 a 9 nao aparece</p>
+                            </li>
+                            <li>
+                                <strong>;</strong>
+                                <p>//esse comando simples permite utilizar varios comandos em uma mesma linha</p>
+                            </li>
+                            <li>
+                                <p><strong>tr 'algo' 'outro' tr ' ' '\n'</strong><br>//tr é uma troca de palavras nesse primeiro exemplo algo é trocado por outro e no segundo exemplo linhas em branco sao trocadas por quebras de linhas, isso organiza textos </p>
+                            </li>
+                        </ul>
+                    </details>
+                    <hr class="divisor">
+
+
+                    <h2 class="texto"><strong>Criar Arquivos/Pastas</strong></h2>
+
+                    <details>
+                        <summary>  Veja aqui</summary><br>
+                            <ul>
+                                <li>
+                                    <strong>touch teste.txt</strong>
+                                    <p>//cria um arquivo</p>
+                                </li>
+                                <li>
+                                    <p><strong>mkdir pasta<br></strong>//cria uma pasta</p>
+                                </li>
+                                <li>
+                                    <p><strong>mkdir -p pasta/texte/docs<br></strong>//cria toda uma cadeia de pastas</p>
+                                </li>
+                            </ul>
+                    </details>
+
+                    <hr class="divisor">
+
+                    <h2 class="texto">Navegação em pastas</h2>
+
+                    <details>
+                        <summary>  Veja aqui</summary><br>
+                        <ul>
+                            <li>
+                                <p>cd pasta<br>// vai ate a pasta inserida</p>
+                            </li>
+                            <li>
+                                <p>cd ..<br>//volta 1 "casa" de ditretorios</p>
+                            </li>
+                        </ul>
+                    </details>
+                        
+                    <hr class="divisor">
+
+                    <h2 class="texto">Modificações em Arquivos e Pastas</h2>
+
+                    <details>
+                        <summary>  Veja aqui</summary><br>
+                        <ul>
+                            <li>
+                                <p>cp texte.txt teste.txt<br>//copia o arquivo texte e renomeia como teste</p>
+                            </li>
+                            <li>
+                                <p>cp teste.txt pasta/<br>//copia e leva para a pasta inserida</p>
+                            </li>
+                            <li>
+                                <p>cp teste.txt pasta/tst.txt<br>//copia e leva para a pasta inserida e renomeia para tst</p>
+                            </li>
+                            <li>
+                                <p>cp -r pasta nova_pasta<br>//copia a pasta toda e nomeia como nova_pasta</p>
+                            </li>
+                            <li>
+                                <p>cp -r pasta nova_pasta/<br>//copia a pasta para dentro de nova_pasta</p>
+                            </li>
+                            <li>
+                                <p>mv arquivo.txt teste.txt<br>//renomeia arquivo para teste</p>
+                            </li>
+                            <li>
+                                <p>mv arquivo.txt pasta/<br>//move para a pasta selecionada</p>
+                            </li>
+                            <li>
+                                <p>rm arquivo.txt<br>//deleta o arquivo</p>
+                            </li>
+                            <li>
+                                <p>rm arquivo1.txt arquivo2.txt<br>//deleta mais de 1</p>
+                            </li>
+                            <li>
+                                <p>rm -r pasta<br>//remove pasta</p>
+                            </li>
+                            <li>
+                                <p>rm -f -r pasta<br>//-f forced, -r diretorio, remove a pasta forcadamente</p>
+                            </li>
+                            <li>
+                                <p>rm -r pasta ou rm -rf pasta<br>//remove uma pasta, se vc utilizar o -rf remove forçadamente a pasta<br>//existe tambem o rmdir pasta mas ele remove apenas pastas vazias entao ignore-o</p>
+                            </li>
+                        </ul>
+                    </details>
+                        
+                        <li>
+                            <p>cat teste.txt<br>// apresenta arquivo, recomendado para arquvo pequenos</p>
+                        </li>
+                        <li>
+                            <p>less teste.txt<br>// apresenta arquivo, recomendado para arquivos grandes, é o que vai ser utilizado na maior parte das veses</p>
+                        </li>
+                        
+                        <li>
+                            <p><strong>head/tail -n 10 arquivo</strong><br>//isso le 10 linhas do arquivo no topo para head e no fim para tail</p>
+                        </li>
+                        <li>
+                            <p><strong>wc arquivo</strong><br>//wc lista quantas linhas,palavras e caracteres tem no arquivo<br>//wc -l lista as linhas<br>//wc -w lista as palavras<br>//wc -c lista os caracteres</p>
+                        </li>
+                        <li>
+                            <p><strong>sort arquivo</strong><br>lista as palavras do arquivo em ordem alfabetica<br><strong>sort -r arquivo; sort -u arquivo; sort -n arquivo</strong><br>//-r lista em ordem decrescente<br>//-u lista ignorando duplicatas<br>//-n lista por numeros</p>
+                        </li>
+                        <li>
+                            <p><strong>grep "mensagem" arquivo</strong><br>//todas as linhas que tiverem a(s) palavras selecionadas serão listadas<br><strong>grep -i "erro" arquivo</strong><br>//ignora letras maiusculas ou minusculas<br><strong>grep -v</strong><br>//exibe linhas não correspondentes<br><strong>grep -n</strong><br>//mostra o numero da linha que encontrou<br><strong>grep -r</strong><br>//mostra as pastas que possui a mensagem<br><strong>grep -l</strong><br>//mostra os arquivos que possuem a mensagem<br><strong>grep -in</strong><br>//ignora letras e mostra a linha, é possivel misturar a vontade</p>
+                        </li>
+                        <li>
+                            <p><strong>echo "mensagem"</strong><br>//comando print de terminal</p>
+                        </li>
+                        <li>
+                            <p><strong>ls algo &gt; arquivo</strong><br>//isso lista algo dentro de arquivo, é um comando de direção</p>
+                        </li>
+                        <li>
+                            <p><strong>echo "oi" &gt;&gt; arquivo</strong><br>//coloca oi no arquivo mas sem sobrescrever o que tinha antes</p>
+                        </li>
+                        <li>
+                            <p><strong>echo $HOME SHELL PWD USER <br></strong>// o echo com $ mostra o valor da variavel que vier depois, nesse caso ele mostra o caminho da pasta pessoal(HOME)<br>//USER mostra seu nome de usuario, SHELL seu programa de shell atual e PWD diretorio de trabalho atual</p>
+                        </li>
+                        <li>
+                            <p><strong>echo &lt; "oi" &gt; arquivo</strong><br>//isso diz pra echo que oi é vinculado a arquivo<br><strong>echo &lt; arquivo &gt; "oi"</strong><br>//aqui sim é util o &lt; pois ele se torna um intermediador</p>
+                        </li>
+                        <li>
+                            <p><strong>cat arquivo | sort</strong><br>//pega a saida de cat e envia para sort, no fim é listado ordenado na tela<br>//faz o que cat &lt; arquivo &gt; sort faria basicamente<br><strong>cat arquivo | sort | uniq | head -10</strong><br>//o comando | é util pra fazer multiplas operações desta forma<br>//nesse exemplo ele mostra as 10 primeiras linhas sem duplicatas e ordenadas por nome</p>
+                        </li>
+                        <li>
+                            <p><strong> -rwx rwx rwx       drwx r-x --x</strong><br>//esse comando mostra as permissões de cada tipo de usuario no sistema, o comando é tudo junto -rwxrwxrwx <br>//a primeira letra pode ser - ou d, - é arquivo padrao e d é pasta <br>//rwx é read, write e execute, a ordem é proprietario,grupo e usuario padrao sempre divido em 3 <br>//dessa forma -rwx <--1 rwx <--2 rwx <--3<br>//o segundo exemplo é pra caso deseje retirar permissões colocando - onde seria a permissao<br>//drwx r-x --x, nesse comando o proprietario faz tudo, grupos podem ler e executar e usuarios normais podem apenas executar<br></p>
+                        </li>
+                        <li>
+                            <p><strong>chmod 777 cat arquivo.txt</strong><br>//esse comando facilita tudo é dividido pelo seguinte<br>//7 para todas as permissões(rwx)<br>//6 para leitura e escrita(rw-)<br>//5 para leitura e execução(r-x)<br>//4 apenas leitura(r--)<br>//0 para nenhuma permissão</p>
+                        </li>
+                        <li>
+                            <p><strong>chown nome arquivo      chown :nome arquivo<br></strong>//o comando chown nome arquivo troca o proprietario do arquivo pro nome que foi inserido<br>//chown :nome arquivo altera o grupo que ele pertence<br></p>
+                        </li>
+                        <li>
+                            <p><strong>printenv      printenv HOME</strong><br>//isso mostra todas as variaveis do ambiente enquanto printenv HOME mostra só as variaveis HOME</p><br>
+                        </li>
+                        <li>
+                            <p><strong>Var="Ola" echo $Var</strong><br>//isso cria uma variavel chamada var com valor ola, echo mostra ela<br>//uma funcionalidade pra isso é Pasta="/home/ronin/documents/couveestudos" isso chega nessa pasta</p><br>
+                        </li>
+                        <li>
+                            <p><strong>export Var     env | grep Var</strong><br>//export faz a variavel se tornar parte do ambiente, env grep checa se a variavel esta ali</p><br>
+                        </li>
+                        <li>
+                            <p><strong>cat ~/.bashrc       echo 'export Var="oi"' >> ~/.bashrc     source ~/.bashrc</strong><br>//cat com bash mostra as variaveis bash presentes, o echo com esse comando manda a variavel Var pra bash, isso faz ela abrir com o sistema<br>//o source aplica as variaveis que vc criou</p><br>
+                        </li>
+                        <li>
+                            <p><strong>#/bin/bash       read -p "Enter your name:" name         echo "Hello, $name!"</strong><br>
+                            //esse tanto de comando inutil forma uma entrada de usuario padrao, tanto de comando pra só isso</p><br>
+                        </li>
+                        <li>
+                            <p><strong>echo 'read -p "What is your favorite color? " color' >> greeter.sh<br>echo 'echo "Nice! $color is a great color!"' >> greeter.sh<br>chmod +x greeter.sh             echo "blue" | ./greeter.sh</strong><br></p><br>
+                        </li>
+                        <li>
+                            <p><strong>#!/bin/bash    if [ algo -eq 20 ]; then         else       fi<br></strong>//estrutura do if else em linux,-eq é igual, -ne é difrente de, -gt é maior que, -lt é menor que, -ge maior ou igual, -le menor ou igual, pra strings use = e !=<br> o if de linux é fresco tem espaçonos colchetes, [ var == 10 ]</p>
+                        </li>
+                        <li>
+                            <p><strong>#!/bin/bash<br>
+                                for name in Alice Bob Charlie; do<br>
+                                    echo "Hello, $name!"<br>
+                                done</strong><br>//itera sobre nomes, 3 veses é um for comum só que mais confuso</p>
+                        </li>
+                        <li>
+                            <p><strong>#!/bin/bash<br>
+                                for file in *.txt; do<br>
+                                    echo "Processing $file"<br>
+                                done</strong><br>//checa todos os arquivos do tipo inserido, isso é relevante e mais facil de entender</p>
+                        </li>
+                        <li>
+                            <p><strong>#!/bin/bash<br>
+                                for i in {1..5}; do<br>
+                                    echo "Number: $i"<br>
+                                done</strong><br>//isso sim parece um loop for, esse itera por numeros</p>
+                        </li>
+                        <li>
+                            <p><strong>echo '#!/bin/bash
+                                for i in {5..1}; do<br>
+                                    echo "Countdown: $i"<br>
+                                done' > countdown.sh<br>
+                                chmod +x countdown.sh<br>
+                                ./countdown.sh<br></strong>//comando for, assim como o if é desnecessariamente verboso</p>
+                        </li>
+                        <li>
+                            <p><strong>cat > backup.sh << 'EOF'<br>
+                                    #!/bin/bash<br>
+                                    read -p "Enter source directory: " source_dir<br>
+                                    echo "Backing up: $source_dir"<br>
+                                    backup_dir="backup"<br>
+                                    mkdir -p "$backup_dir"<br>
+                                    echo "Created backup folder: $backup_dir"<br>
+                                    cp "$source_dir"/* "$backup_dir"<br>
+                                    echo "Files copied successfully"<br>
+                                    EOF<br>
+                                    echo "documents" | bash backup.sh<br>
+                                    ls backup<br></strong></p>
+                                    <p>//Cria um script básico que pede uma pasta de origem via 'read', cria uma pasta fixa chamada backup (usando mkdir -p para não dar erro se já existir) e copia todos os arquivos soltos dela.<br>
+                                    //O comando 'echo "documents" | bash backup.sh' executa o script enviando a palavra documents automaticamente para o read.<br>
+                                    //O 'ls backup' no final lista o conteúdo copiado para conferência.</p>
+                        </li>
+                        <li>
+                            <p><strong>cat > backup.sh << 'EOF'<br>
+                                #!/bin/bash<br>
+                                echo "Enter folder to backup:"<br>
+                                read folder<br>
+                                echo "Backing up: $folder"<br>
+                                timestamp=$(date +%Y%m%d_%H%M%S)<br>
+                                backup_dir="backup_$timestamp"<br>
+                                mkdir "$backup_dir"<br>
+                                echo "Created backup folder: $backup_dir"<br>
+                                cp "$folder"/* "$backup_dir"/<br>
+                                echo "Files copied successfully"<br>
+                                EOF<br>
+                                chmod +x backup.sh<br>
+                                echo "documents" | bash backup.sh<br></strong></p>
+                                <p>//Nesta versão, a data/hora exata é salva primeiro na variável 'timestamp' usando $(date +%Y%m%d_%H%M%S).<br>
+                                //Depois, cria a pasta com o nome dinâmico (ex: backup_20260914_150500), garantindo que backups antigos nunca sejam sobrescritos.<br>
+                                //Usa 'echo' e 'read' em duas linhas separadas no lugar de 'read -p'. Usa 'chmod +x' para dar permissão de execução ao script.</p>
+                        </li>
+                        <li>
+                            <p><strong>cat > backup.sh << 'EOF'<br>
+                                    #!/bin/bash<br>
+                                    read -p "Enter directory to backup: " source_dir<br>
+                                    echo "Backing up: $source_dir"<br>
+                                    backup_dir="backup_$(date +%Y%m%d_%H%M%S)"<br>
+                                    mkdir "$backup_dir"<br>
+                                    echo "Created backup folder: $backup_dir"<br>
+                                    cp "$source_dir"/* "$backup_dir"/<br>
+                                    echo "Files copied successfully"<br>
+                                    echo "Backup complete: $source_dir -> $backup_dir"<br>
+                                    EOF<br>
+                                    echo "documents" | bash backup.sh<br></strong></p>
+                                    <p>//Versão mais limpa, gera o timestamp diretamente dentro da declaração da variável 'backup_dir'.<br>
+                                     //Inclui um 'echo' final informativo mostrando exatamente qual pasta foi copiada e qual pasta de destino foi gerada ($source_dir -> $backup_dir).</p>
+                        </li>
+                        <li>
+                            <p><strong></strong></p>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="segundo">
+                <section>
+                    <h2><a href="C:\Users\User\Documents\CouveEstudos\testes_git\Anotacoes_terminal.html">Terminal</a></h2>
+                    <nav>
+                        <img src="https://coddy.tech/icons/terminal.svg" alt="Ícone Terminal">
+                    </nav>
+
+                    <h2><a href="C:\Users\User\Documents\CouveEstudos\testes_git\Anotações_git.html">Git</a></h2>
+                    <nav>
+                        <img src="https://coddy.tech/icons/git.svg" alt="Ícone Git">
+                    </nav>
+
+                    <h2><a href="C:\Users\User\Documents\CouveEstudos\testes_git\Anootações_github.html">GitHub</a></h2>
+                    <nav>
+                        <img src="25231.png" alt="Ícone GitHub">
+                    </nav>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p>Clique em Terminal, Git ou GitHub para acessar as anotações</p>
+        </footer>
+    </div>
+</body>
+</html>
