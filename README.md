@@ -105,16 +105,16 @@ Apenas tentando aprender algo novo
     <img 
         align="left" 
         alt="Git" 
-        height="200"
-        width="500"
+        height="300"
+        width="600"
         style="padding-right: 10px;"
         src="https://github-stats-extended.vercel.app/api?username=MuriloHenrique99&show_icons=true&include_all_commits=true&theme=apprentice"
     />
 <img
     align="left" 
     alt="Git" 
-    height="200"
-    width="280"
+    height="300"
+    width="350"
     style="padding-right: 10px;"
     src="https://github-stats-extended.vercel.app/api/top-langs?username=MuriloHenrique99&langs_count=8&theme=tokyonight"
     >
