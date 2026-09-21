@@ -40,6 +40,9 @@
                             <li>
                                 <p><strong>git status</strong><br>//mostra o status atual do repositório<br></p>
                             </li>
+                            <li>
+                                <p><strong>git show<br> git show --no-patch --pretty=%s HEAD<br></strong>//git show mostra um commit com sua mensagem, seus metadados e o diff que ele alterou<br>//o show monstruoso ali é pra mostrar somente a mensagem<br> </p>
+                            </li>
                         </ul>
                     </details>
 
@@ -48,15 +51,16 @@
                         <h2 class="texto"><strong>Adicionar e Commitar</strong></h2>
                             <details>
                                 <summary>  Veja aqui</summary><br>
-                            <li>
-                                <p><strong>git add arquivo<br>git add *.html<br>git add .<br></strong>//git add com arquivo adiciona ele ao stage<br>//git add *.html adiciona todos os arquivos html da pasta que voce esta<br>//git add . adiciona tudo que esta na pasta<br></p>
-                            </li>
-                            <li>
-                                <p><strong>git commit -m "mensagem"</strong><br>//isso sobre os arquivos preparados para o repositorio github, o -m é o que permite colocar uma mensagem ao lado<br></p>
-                            </li>
-                            <li>
-                                <p><strong>git log<br>git log --oneline<br>git log --reverse<br>//mostra os commits feitos no repositorio, git oneline mostra o mesmo só que mais compactado e reverse aparece do mais antigo pro mais novo<br></strong></p>
-                            </li>
+                                <ul>
+                                <li>
+                                    <p><strong>git add arquivo<br>git add *.html<br>git add .<br></strong>//git add com arquivo adiciona ele ao stage<br>//git add *.html adiciona todos os arquivos html da pasta que voce esta<br>//git add . adiciona tudo que esta na pasta<br></p>
+                                </li>
+                                <li>
+                                    <p><strong>git commit -m "mensagem"</strong><br>//isso sobre os arquivos preparados para o repositorio github, o -m é o que permite colocar uma mensagem ao lado<br></p>
+                                </li>
+                                <li>
+                                    <p><strong>git log<br>git log --oneline<br>git log --reverse<br>//mostra os commits feitos no repositorio, git oneline mostra o mesmo só que mais compactado e reverse aparece do mais antigo pro mais novo<br></strong></p>
+                                </li>
                         </ul>
                     </details>
 
@@ -66,9 +70,33 @@
 
                         <details>
                                 <summary>  Veja aqui</summary><br>
-                            <li>
-                                <p><strong>git diff<br>git diff --staged</strong><br>//isso mostra as alterações que foram feitas antes de ir pro stage,linhas removidas aparecem com - e inseridas com +<br>//git diff staged mostra os que estão no stage<br></p>
+                                <ul>
+                                <li>
+                                    <p><strong>git diff<br>git diff --staged</strong><br>//isso mostra as alterações que foram feitas antes de ir pro stage,linhas removidas aparecem com - e inseridas com +<br>//git diff staged mostra os que estão no stage<br></p>
+                                </li>
+                                <li>
+                                    <p><strong>.gitignore<br>*.log<br>logs/*.tmp<br>!important.log<br></strong>//*.log ignora todos os arquivos .log<br>//logs/*.tmp ignora arquivos .tmp dentro de log, isso é util pra vc usar o add . sem adicionar arquivos inuteis<br>//!important.log faz o arquivo que seria ignorado nao ser ignorado<br></p>
+                                </li>
+                                <li>
+                                    <p><strong>git check-ignore -v build/output.txt<br></strong>//isso é util pra quando um arquivo apareceu ou não no status, faz vc não se perder, tem essa saida<br>.gitignore:1:build/    build/output.txt<br>//lembre-se este é um teste entao use git check-ignore -v "algo", nesse algo coloque o quer checar<br>// se quiser modo mais rapido use: git check-ignore *<br></p>
+                                </li>
+                                <li>
+                                    <p><strong></strong></p>
                             </li>
+                                </ul>
+                        </details>
+                        
+                    <hr class="divisor">
+
+                    <h2 class="texto"><strong>Branchs</strong></h2>
+
+                        <details>
+                                <summary>  Veja aqui</summary><br>
+                                <ul>
+                                    <li>
+                                        <p><strong></strong></p>
+                                    </li>
+                                </ul>
 
                 </section>
             </div>
