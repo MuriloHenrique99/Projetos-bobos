@@ -18,7 +18,7 @@ std::map<string, int> findKeysWithValue(map<string, int> inicio, int valor){
 }
 
 int main() {
-
+    
     int n;
     cin >> n;
     
@@ -41,3 +41,4 @@ int main() {
     }
     return 0;
 }
+

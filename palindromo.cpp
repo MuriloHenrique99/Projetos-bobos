@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 bool is_palindrome(std::string text){
   std::string name = text;
@@ -29,6 +30,8 @@ int main() {
   std::cout << std::boolalpha << is_palindrome("madam") << "\n";
   std::cout << std::boolalpha << is_palindrome("ada") << "\n";
   std::cout << std::boolalpha << is_palindrome("lovelace") << "\n";
+
+  std::cout << std::fixed << std::setprecision(2) << 12.3456;
 
   std::cin.ignore(1000, '\n');
   std::cout << "Tecle <Enter> para encerrar";

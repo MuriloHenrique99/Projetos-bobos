@@ -8,7 +8,6 @@ struct agenda{
     std::string telefones;
 };
 
-
 std::vector<agenda> cadastro(){
     std::vector<agenda> cadastros;
 
@@ -119,6 +118,7 @@ int main(void){
             std::cout << "Por favor escolha uma opcao valida" << std::endl;
         }
     }
+    
 
     std::cin.ignore(80, '\n');
     std::cout << "Tecle <Enter> para encerrar...";
